@@ -1,0 +1,36 @@
+{
+  "name": "Instapaper Read Styles",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Make Instapaper's reading view nicer",
+  "homepage_url": "http://extensionizr.com",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "background": {
+    "scripts": [
+      "src/bg/background.js"
+    ],
+    "persistent": false
+  },
+  "permissions": [
+    "https://www.instapaper.com/read/*"
+  ],
+  "web_accessible_resources": [
+    "js/script.js"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.instapaper.com/read/*"
+        , "https://google.com/*"
+      ],
+      "js": [
+        "src/inject/inject.js"
+      ]
+    }
+  ]
+}
